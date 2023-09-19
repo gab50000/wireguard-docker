@@ -1,0 +1,2 @@
+FROM wireguard-base
+
