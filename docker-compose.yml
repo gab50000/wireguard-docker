@@ -1,6 +1,29 @@
 services:
+  base-image:
+    image: wireguard-base
+    build: base
+    deploy:
+      replicas: 0
+    cap_add:
+      - ALL
+
   server:
     build: server
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    depends_on:
+      - base-image
 
   client:
     build: client
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+      - SYS_MODULE
+    volumes:
+      - /usr/src:/usr/src
+      - /lib/modules:/lib/modules
+    depends_on:
+      - base-image
+      - server

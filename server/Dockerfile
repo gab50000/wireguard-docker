@@ -1,5 +1,8 @@
 FROM wireguard-base
 
-RUN wg genkey > /etc/wireguard/private.key && \
-    chmod 400 /etc/wireguard/private.key && \
-    wg pubkey < /etc/wireguard/private.key > /etc/wireguard/public.key
+COPY wg0.conf /etc/wireguard/wg0.conf
+COPY private.key /etc/wireguard/private.key
+COPY public.key /etc/wireguard/public.key
+COPY setup.sh .
+
+CMD ./setup.sh && sleep 5m
