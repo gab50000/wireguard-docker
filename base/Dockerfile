@@ -4,5 +4,9 @@ RUN apt-get update && \
     apt-get install -y \
         wireguard \
         iproute2 \
-        iputils-ping && \
+        iputils-ping \
+        nmap \
+        procps \
+        ufw \
+        vim && \
     rm -rf /var/lib/apt/lists/* 

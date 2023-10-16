@@ -5,4 +5,4 @@ COPY private.key /etc/wireguard/private.key
 COPY public.key /etc/wireguard/public.key
 COPY setup.sh .
 
-CMD ./setup.sh && sleep 5m
+CMD ./setup.sh && sleep 60m
