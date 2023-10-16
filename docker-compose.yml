@@ -13,9 +13,6 @@ services:
       - NET_ADMIN
       - NET_RAW
       - SYS_MODULE
-    volumes:
-      - /usr/src:/usr/src
-      - /lib/modules:/lib/modules
     depends_on:
       - base-image
     networks:
@@ -27,9 +24,6 @@ services:
       - NET_ADMIN
       - NET_RAW
       - SYS_MODULE
-    volumes:
-      - /usr/src:/usr/src
-      - /lib/modules:/lib/modules
     depends_on:
       - base-image
       - server
